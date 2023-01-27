@@ -1,0 +1,16 @@
+name: Deploy MySQL DDL
+on: push
+jobs:
+  job_1:
+    name: Deploy SQL
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+            ref: main
+      - name: Execute SQL
+        run: | 
+            ls -al
+            pwd
+            mysql -u coder -h localhost -pcoder@123 < scripts.sql
